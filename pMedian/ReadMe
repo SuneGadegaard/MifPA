@@ -1,1 +1,2 @@
-This is an implementation of the p-median problem in Python using Pyomo
+This is a Pyomo implementation of a p-median problem.
+Used in the course "Modellering inden for Prescriptive Analytics" at Aarhus University
