@@ -7,14 +7,13 @@
 #       sum ( i in 0..4 ) y[i] == p
 #       x[i][j], y[i] are all binary
 # where c[i][j] is the cost of servicing customer j from location i and p is the number of facilities to place
-# The readData(...) function has an argument for a file name. This is not used in this simple example! The data
-# is simply hard coded in readData(...)
+# The readData(...) function uses a small Json wrapper to load the data
 import pyomo.environ as pyomo
 import readAndWriteJson as rwJson
 
 def readData(filename: str) -> dict:
     # implementation of readData
-    data = rwJson.readJsonFileToDictionary('pMedianDataFile')
+    data = rwJson.readJsonFileToDictionary(filename)
     return data
 
 
@@ -69,7 +68,7 @@ def displaySolution(model: pyomo.ConcreteModel()):
 
 
 def main():
-    data = readData('pathToTheDataFile')
+    data = readData('pMedianDataFile')
     model = buildModel(data)
     solveModel(model)
     displaySolution(model)
