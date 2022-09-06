@@ -10,6 +10,9 @@ min   sum ( i in 0..n ) sum( j in 0..n) dist[i][j]*x[i][j]
        1 <= u[i] <= n, for all i=1,..,n
        x[i][j] are all binary
 
+The model is implemented in TSPmodel.py and it uses functions from readAndWriteJson.py in order to read data from a Json-file.
+Two data-sets are given, namely 'small_tsp_data' and 'bigger_tsp_data'.
+
 The data is stored in a Json fil using the format
 'n' -> number of customers. Stored as an integer
 'xCord' -> horizontal coordinates of the nodes (depot + customers). Stored in a list
