@@ -6,3 +6,5 @@ The data in clusteringData_34_point is stored in a Json file with the following 
 
 The code snippet uses sklearn library and its k-means algorithm. After clustering the data, matplotlib is used to plot the data as a scatter plot
 for visual inspection.
+
+In order to read the data, the code in readAndWriteJson is used.
