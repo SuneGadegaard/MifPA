@@ -13,37 +13,25 @@
 
 import pyomo.environ as pyomo       # Used for modelling the IP
 import matplotlib.pyplot as plt     # Used to plot the instance
-import math                         # Used to get access to sqrt() function
+import numpy as np                  # Used for calculating distances
 import readAndWriteJson as rwJson   # Used to read data from Json file
 
 
-def makeEuclideanDistanceMatrix(data: dict) -> list:
-    dist = []
+def makeLpNormDistanceMatrix(data: dict, p: int) -> list:
+    points = np.column_stack((data['x'], data['y']))
     nrPoints = len(data['x'])
+    dist = []
     for i in range(0, nrPoints):
         dist.append([])
         for j in range(0, nrPoints):
-            tmpDist = math.sqrt((data['x'][i] - data['x'][j]) ** 2 + (data['y'][i] - data['y'][j]) ** 2)
-            dist[i].append(tmpDist)
-    return dist
-
-
-def makeManhattanDistanceMatrix(data: dict) -> list:
-    dist = []
-    nrPoints = len(data['x'])
-    for i in range(0, nrPoints):
-        dist.append([])
-        for j in range(0, nrPoints):
-            tmpDist = abs(data['x'][i]-data['x'][j]) + abs(data['y'][i]-data['y'][j])
-            dist[i].append(tmpDist)
+            dist[i].append(np.linalg.norm(points[i] - points[j], p))
     return dist
 
 
 def readData(clusterData: str) -> dict():
     data = rwJson.readJsonFileToDictionary(clusterData)
     data['nrPoints'] = len(data['x'])
-    #data['dist'] = makeEuclideanDistanceMatrix(data)
-    data['dist'] = makeManhattanDistanceMatrix(data)
+    data['dist'] = makeLpNormDistanceMatrix(data, 1)
     return data
 
 
@@ -61,7 +49,7 @@ def buildModel(data: dict) -> pyomo.ConcreteModel():
     model.x = pyomo.Var(model.points, model.points, within=pyomo.Binary)
     model.y = pyomo.Var(model.points, within=pyomo.Binary)
     # Add objective function
-    model.obj = pyomo.Objective(expr=sum(model.dist[i][j]*model.x[i, j] for i in model.points for j in model.points))
+    model.obj = pyomo.Objective(expr=sum(model.dist[i][j] * model.x[i, j] for i in model.points for j in model.points))
     # Add "all represented" constraints
     model.allRep = pyomo.ConstraintList()
     for j in model.points:
@@ -84,20 +72,23 @@ def solveModel(model: pyomo.ConcreteModel()):
 
 
 def displaySolution(model: pyomo.ConcreteModel()):
-    labels = [0]*model.nrPoints
+    print('Optimal sum of distances in clusters:', pyomo.value(model.obj))
+    labels = [0] * model.nrPoints
+    ptNumber = list(model.points)
     # Print the groups to promt and save coordinates for plotting
     for i in model.points:
         if pyomo.value(model.y[i]) == 1:
             print('Point', i, 'represents points:')
             for j in model.points:
                 if pyomo.value(model.x[i, j]) == 1:
-                    print (j,",",end='')
+                    print(j, ",", end='')
                     labels[j] = i
             print('\n')
     # Plot with different colors
     plt.scatter(model.xCoordinates, model.yCoordinates, c=labels)
+    for i, label in enumerate(ptNumber):
+        plt.annotate(ptNumber[i], (model.xCoordinates[i], model.yCoordinates[i]))
     plt.show()
-
 
 
 def main(clusterDataFile: str):
