@@ -1,10 +1,10 @@
 This folder contains code for performing graph editing on a given graph, $G=(V,A)$.
 The code uses a data-file format consisting of labels for the nodes, $V$, of the graph, an adjacency matrix defining the graph, 
 and upper and lower bounds on the clusters in the graph computed.
-The adjacency matrix is called X and X[i][j]=1 if and only if there is an arc from node i to node j in G. That is, if (i,j)\in A
-For simplicity, we assume that |V|=n
+The adjacency matrix is called $X$ and $X_{ij}=1$ if and only if there is an arc from node $i$ to node $j$ in $G$. That is, if $(i,j)\in A$
+For simplicity, we assume that $\vert V\vert=n$
 
-The model formulation uses binary variables z[i][j] equalling one if and only if there is an arc from i to j in the edited graph
+The model formulation uses binary variables $z_{ij}$ equalling one if and only if there is an arc from $i$ to $j$ in the edited graph
 
 The graph editing problem solves is given by the IP:
 
