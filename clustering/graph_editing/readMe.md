@@ -25,9 +25,9 @@ which contains code for visualising the graphs - both the input and the output g
 First the graph defined by X is displayed, then the IP is solved, and then the graph defined by z as an adjacency matrix is displayed.
 Below is a set of links to videos describing the implementation (danish)
 
-* About the structure of the code: https://www.loom.com/share/ffaa342f6c8a42738f38135478021b4c
-* About moving files to the right folders: https://www.loom.com/share/723713b3818448de9f06e82c1a2cd130
-* About implementing the readData function: https://www.loom.com/share/3f53e9c9413b4747a6956390a71e2f67
-* About implementing the buildModel function: https://www.loom.com/share/f6aeb5c79ad442b489cbc22f78d67e78
-* About implementing the solveModel function: https://www.loom.com/share/3640f790e4704c65b86c22d1b9fc3c54
-* About implementing the displaySolution function: https://www.loom.com/share/adf23ecec6bf423a87a6bbff4369061d
+* [About the structure of the code](https://www.loom.com/share/ffaa342f6c8a42738f38135478021b4c)
+* [About moving files to the right folders](https://www.loom.com/share/723713b3818448de9f06e82c1a2cd130)
+* [About implementing the readData function](https://www.loom.com/share/3f53e9c9413b4747a6956390a71e2f67)
+* [About implementing the buildModel function](https://www.loom.com/share/f6aeb5c79ad442b489cbc22f78d67e78)
+* [About implementing the solveModel function](https://www.loom.com/share/3640f790e4704c65b86c22d1b9fc3c54)
+* [About implementing the displaySolution function](https://www.loom.com/share/adf23ecec6bf423a87a6bbff4369061d)
