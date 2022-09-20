@@ -1,8 +1,8 @@
 This folder contains code for performing graph editing on a given graph, $G=(V,A)$.
 The code uses a data-file format consisting of labels for the nodes, $V$, of the graph, an adjacency matrix defining the graph, 
 and upper and lower bounds on the clusters in the graph computed.
-The adjacency matrix is called $X$ and $X_{ij}=1$ if and only if there is an arc from node $i$ to node $j$ in $G$. That is, if $(i,j)\in A$
-For simplicity, we assume that $\vert V\vert=n$
+The adjacency matrix is called $X$ and $X_{ij}=1$ if and only if there is an arc from node $i$ to node $j$ in $G$. That is, if $(i,j)\in A$.
+For simplicity, we assume that $\vert V\vert=n$.
 
 The model formulation uses binary variables $z_{ij}$ equalling one if and only if there is an arc from $i$ to $j$ in the edited graph
 
@@ -25,7 +25,7 @@ The code as it is relies on libraries
 And then the code in readAndWriteJson is used to read the data from a Json-formattet file. Furthermore, there is a small file called "displayGraph.py",
 which contains code for visualising the graphs - both the input and the output graphs.
 
-First the graph defined by X is displayed, then the IP is solved, and then the graph defined by z as an adjacency matrix is displayed.
+First the graph defined by $X$ is displayed, then the IP is solved, and then the graph defined by $z$ as an adjacency matrix is displayed.
 Below is a set of links to videos describing the implementation (danish)
 
 * [About the structure of the code](https://www.loom.com/share/ffaa342f6c8a42738f38135478021b4c)
