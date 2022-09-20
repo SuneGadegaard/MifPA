@@ -8,11 +8,13 @@ The model formulation uses binary variables z[i][j] equalling one if and only if
 
 The graph editing problem solves is given by the IP:
 
+```
 max   w1*sum(i,j in 0..n-1) X[i][j]*z[i][j] - w2*sum(i,j in 0..n-1) (1-X[i][j])*z[i][j]
 s.t.: z[i][j] + z[j][k] - 1 <= z[i][k],       for all i,j,k in 0..n-1
       l-1 <= sum(j in 0..n-1 : i!=j) z[i][j], for all i in 0..n-1
       sum(j in 0..n-1 : i!=j) z[i][j] <= u-1, for all i in 0..n-1  
       z[i][j] in {0,1},                       for all i,j in 0..n-1
+```
 
 The IP is modelled using Pyomo and then solved using an IP solver. The code suggests cbc, but any IP solver goes.
 
