@@ -18,7 +18,8 @@ The IP is modelled using Pyomo and then solved using an IP solver. The code sugg
 The code as it is relies on libraries
 1. Pyomo
 2. Matplotloi
-3. Math
-And then the code in readAndWriteJson is used to read the data from a Json-formattet file.
+3. networx
+And then the code in readAndWriteJson is used to read the data from a Json-formattet file. Furthermore, there is a small file called "displayGraph.py",
+which contains code for visualising the graphs - both the input and the output graphs.
 
 First the graph defined by X is displayed, then the IP is solved, and then the graph defined by z as an adjacency matrix is displayed.
