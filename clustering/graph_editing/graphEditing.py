@@ -1,25 +1,25 @@
 # Pyomo example for the course "Modellering inden for Prescriptive Analytics" at Aarhus University, Fall 2022
 # Implementation of a graph editing problem where only edges can be deleted/added - that is, no alteration of the
-# nodes Let G=(V,E) be a graph with node set V, |V| = n, and edge set E. The problem solved here is to
+# nodes! Let G=(V,A) be a graph with node set V, |V| = n, and edge set A. The problem solved here is to
 # minimize a weighted sum of the number of added and deleted edges, respectively, necessary for the graph G to be be
 # partitioned into disjoint clusters containing no less than l nodes and no more than u nodes. The IP solved is given
 # by
-# min   sum ( i in 0..n-1 ) sum( j in 0..n-1) ( w1*x[i][j] - w2(1-x[i][j]) )*z[i][j]
+# min   sum ( i in 0..n-1 ) sum( j in 0..n-1) ( w1*X[i][j] - w2(1-X[i][j]) )*z[i][j]
 # s.t.  z[i][j] + z[j][k] - 1 <= z[i][k],               for all i,j,k=0,..,n-1
 #       l-1 <= sum ( j in 0..n-1 : j!= i ) z[i][j],     for all i=0..n-1
 #       u-1 >= sum ( j in 0..n-1 : j!= i ) z[i][j],     for all i=0..n-1
 #       z[i][j] in {0,1},                               for all i,j=0..n-1
 #
-# Here x[i][j]=1 if there is an arc from node i to node j in G. Furthermore, w1 and w2 are weights defining the
+# Here X[i][j]=1 if there is an arc from node i to node j in G. Furthermore, w1 and w2 are weights defining the
 # relative importance of removing and adding arcs, repsectively.
 # As we state that z[i][j]=1 indicate that node i is adjacent to node j, it means that j is also adjacent to node i
 # Hence, we help the solver by adding the redundant, but helpful, constraints z[i][j]==z[j][i]
 # The readData(...) function uses the readAndWriteJson file to read data from a Json file. The data file should store
-# the adjacency matrix x[i][j] and a list of node-labels
+# the adjacency matrix X[i][j], a list of node-labels and upper and lower bounds on the cluster sizes
 
-import pyomo.environ as pyomo   # Used for modelling the IP
-import readAndWriteJson as rwJson  # Used to read data from Json file
-from displayGraph import displayGraph
+import pyomo.environ as pyomo           # Used for modelling the IP
+import readAndWriteJson as rwJson       # Used to read data from Json file
+from displayGraph import displayGraph   # Used for building the graph for display
 
 def readData(graphData: str) -> dict():
     data = rwJson.readJsonFileToDictionary(graphData)
