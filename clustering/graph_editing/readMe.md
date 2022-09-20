@@ -7,18 +7,19 @@ For simplicity, we assume that |V|=n
 The model formulation uses binary variables z[i][j] equalling one if and only if there is an arc from i to j in the edited graph
 
 The graph editing problem solves is given by the IP:
+\begin{align}
 max   w1*sum(i,j in 0..n-1) X[i][j]*z[i][j] - w2*sum(i,j in 0..n-1) (1-X[i][j])*z[i][j]
 s.t.: z[i][j] + z[j][k] - 1 <= z[i][k],       for all i,j,k in 0..n-1
       l-1 <= sum(j in 0..n-1 : i!=j) z[i][j], for all i in 0..n-1
       sum(j in 0..n-1 : i!=j) z[i][j] <= u-1, for all i in 0..n-1  
       z[i][j] in {0,1},                       for all i,j in 0..n-1
-
+\end{align}
 The IP is modelled using Pyomo and then solved using an IP solver. The code suggests cbc, but any IP solver goes.
 
 The code as it is relies on libraries
-1. Pyomo
-2. Matplotloi
-3. networx
+1. [Pyomo](http://www.pyomo.org/)
+2. [Matplotlib](https://matplotlib.org/)
+3. [networx](https://networkx.org/)
 And then the code in readAndWriteJson is used to read the data from a Json-formattet file. Furthermore, there is a small file called "displayGraph.py",
 which contains code for visualising the graphs - both the input and the output graphs.
 
