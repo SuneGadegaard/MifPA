@@ -1,0 +1,8 @@
+{
+    "site_labels": ["Site 1", "Site 2", "Site 3", "Site 4", "Site 5"],
+    "customer_labels": ["Customer 1", "Customer 2", "Customer 3", "Customer 4", "Customer 5", "Customer 6", "Customer 7", "Customer 8", "Customer 9", "Customer 10"],
+    "v_costs": [[3,4,17,13,5,13,4,7,14,7],[7,5,15,9,9,11,8,9,10,5],[3,4,17,13,5,13,4,7,14,7],[8,11,11,12,8,7,8,2,10,13],[5,4,16,11,7,11,5,7,12,6]],
+    "f_costs": [11, 13, 15, 17, 18],
+    "demand": [13, 41, 28, 26, 25, 36, 10, 13, 20, 18],
+    "capacity": [38, 47, 73, 85, 46]
+}
