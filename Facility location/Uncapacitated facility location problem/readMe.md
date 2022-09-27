@@ -5,12 +5,14 @@ A cost for servicing customer $j$ from facility site $i$ is given by $c_{ij}$ an
 is given by $f_i$.
 
 The IP solved is given by
-```
-  min   sum ( i in 0..n-1 ) sum( i in 0..m-1 ) c[i][j]*x[i][j] + sum ( i in 0..n-1 ) f[i]*y[i]
-  s.t.  sum ( i in 0..n-1 ) x[i][j] == 1,   for all j=0..m-1
-        x[i][j] <= y[i],                    for all i in 0..n-1 and all j in 0..m-1
-        x[i][j] and y[i] are all binary
-```
+$$
+\begin{align}
+  \min\ & \sum_{i=0}^{n-1}\sum_{j=0}^{m-1} c_{ij}*x_{ij} + \sum_{i=0}^{n-1} f_i*y_i\\
+  \text{s.t.:}\ &  \sum_{i=0}^{n-1}x_{ij} == 1,   &&\forall j=0..m-1
+        \ & x_{ij} <= y_i,                    &&\forall i = 0..n-1, j = 0..m-1
+        x_{ij},y_i \text{ all binary}
+\end{align}
+$$
 Here $y_i=1$ means a facility is opened at site $i$ and $x_{ij}=1$ means that customer $j$ is serviced from site $i$
 
 The readData(...) function uses the readAndWriteJson file to read data from a Json file
