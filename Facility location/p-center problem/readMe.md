@@ -1,5 +1,5 @@
 Pyomo example for the course "Modellering inden for Prescriptive Analytics" at Aarhus University, Fall 2022
-Implementation of a p-median problem where a set of potential facility sites $\{0,1,2,..,n-1\}$ is given along
+Implementation of a p-center problem where a set of potential facility sites $\{0,1,2,..,n-1\}$ is given along
 with a set of customers $\{0,1,2,..,m-1\}$. A cost for servicing customer $j$ from facility site $i$ is given by $c_{ij}$.
 Furthermore, an integer $p$ indicates how many facilities can be open in a feasible solution
 The IP solved is given by
