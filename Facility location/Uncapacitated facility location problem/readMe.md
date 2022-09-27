@@ -1,6 +1,6 @@
 Pyomo example for the course "Modellering inden for Prescriptive Analytics" at Aarhus University, Fall 2022
 Implementation of an uncapacitated facility location problem where a set of potential facility
-sites $\{0,1,2,..,n-1{}$ is given along with a set of customers $\{0,1,2,..,m-1\}$.
+sites $\{0,1,2,..,n-1\}$ is given along with a set of customers $\{0,1,2,..,m-1\}$.
 A cost for servicing customer $j$ from facility site $i$ is given by $c_{ij}$ and a cost for opening a facility at site $i$
 is given by $f_i$.
 
