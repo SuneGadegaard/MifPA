@@ -4,7 +4,7 @@ Pyomo example for the course "Modellering inden for Prescriptive Analytics" at A
 Implementation of a minimum cost covering location problem where a set of potential facility
 sites $0,1,2,..,n-1$ is given along with a set of customers $0,1,2,..,m-1$.
 
-A cost for opening a facility at site $i$ is given by $f_i$. Furthermore, a binary matrix $(a_ij)$ is given where
+A cost for opening a facility at site $i$ is given by $f_i$. Furthermore, a binary matrix $(a_{ij})$ is given where
 $a_{ij} = 1$ if and only if a facility at site $i$ can cover customer $j$. In this particular example, an integer $p$
 specifies the number of open facilities allowed in a fasible solution.
 Finally, for each customer $j$ an integer $b_j$ specifies how many facilities should be "within reach" for customer $j$
