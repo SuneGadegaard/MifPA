@@ -1,3 +1,5 @@
+# Minimum cost covering location problem
+
 Pyomo example for the course "Modellering inden for Prescriptive Analytics" at Aarhus University, Fall 2022
 Implementation of a minimum cost covering location problem where a set of potential facility
 sites $0,1,2,..,n-1$ is given along with a set of customers $0,1,2,..,m-1$.
@@ -12,9 +14,9 @@ The IP solved is given by
 
 $$
 \\begin{align}
-  \min        \ & \sum_{i=0}^{n-1} f_iy_i
-  \text{s.t.:}\ & \sum_{i=0}^{n-$} a_{ij}y_i \geq b_j,   &&\forall j=0..m-1
-              \ & \sum_{i=0}^{n-1}y_i \leq p,
+  \min        \ & \sum_{i=0}^{n-1} f_iy_i\\
+  \text{s.t.:}\ & \sum_{i=0}^{n-$} a_{ij}y_i \geq b_j,   &&\forall j=0..m-1\\
+              \ & \sum_{i=0}^{n-1}y_i \leq p,\\
               \ & y_i \text{ all binary}
 \\end{align}
 $$
