@@ -14,7 +14,7 @@ $$
   \max        \ & \sum_{j=0}^{m-1} z_j\\
   \text{s.t.:}\ & \sum_{i=0}^{n-1} a_{ij}y_i \geq b_j,  && \forall j=0..m-1\\
               \ & \sum_{i=0}^{n-1} y_i \leq p,\\
-              \ & y_i \text{ all binary}
+              \ & y_i,z_j \text{ all binary}
 \\end{align}
 $$       
 
