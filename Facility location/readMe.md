@@ -14,8 +14,8 @@ def main(instance_file_name):
 
 
 if __name__ == '__main__':
-    instance_file_name = 'minCostCoveringData'
+    instance_file_name = 'theNameOfTheDataFile'
     main(instance_file_name)
 ```
 
-In the `readData`-functions the code in `readAndWriteJson.py` is used to read the data from a Json file. 
+In the `readData`-functions, the code in `readAndWriteJson.py` is used to read the data from a Json file. 
