@@ -23,7 +23,7 @@ The readData(...) function uses the readAndWriteJson file to read data from a Js
 
 ```
   "site_labels": [list of strings with labels for the sites. One for each site must be provided if any]
-  #"customer_labels": [list of strings with labels for the customers. One for each site must be provided if any]
+  "customer_labels": [list of strings with labels for the customers. One for each site must be provided if any]
   "cover_matrix": [list of list. cover_maxtrix[i][j]=1 if and only if facility i can cover customer j. 0 otherwise]
   "b": [list of integers. b[j] specifies the number of facilities needed to cover customer j]
   "p": integer specifying the maximum number of facilities to open in an optimal solution
