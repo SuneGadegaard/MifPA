@@ -30,5 +30,5 @@ The readData(...) function uses the `readAndWriteJson.py` file to read data from
   "cover_matrix": [list of list. cover_maxtrix[i][j]=1 if and only if facility i can cover customer j. 0 otherwise]
   "fixed_costs": [list of fixed opening costs]
   "b": [list of integers. b[j] specifies the number of facilities needed to cover customer j]
-"p": integer specifying the maximum number of facilities to open in an optimal solution
+  "p": integer specifying the maximum number of facilities to open in an optimal solution
 ```
