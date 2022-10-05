@@ -11,7 +11,7 @@ $$
       \text{s.t.:}\ & \sum_{i=0}^{n-1} x_{ij} = 1,    &&\forall j=0,\dots,m-1\\
                   \ & x_{ij} \leq y_i,                &&\forall i= 0,\dots,n-1,\ j = 0,\dots,m-1\\
                   \ & \sum_{i=1}^{n-1} y_i \leq p\\
-                  \ & \sum_{i=0}^{n-1} c_{ij}x_{ij} \leq \rho^{\mbox{max}},&& \forall j in 0,\dots,m-1\\
+                  \ & \sum_{i=0}^{n-1} c_{ij}x_{ij} \leq \rho^{\mbox{max}},&& \forall j = 0,\dots,m-1\\
                   \ & x_{ij}, y_i \text{ binary},     && \forall i=0,\dots,n-1,\ j=0,\dots,m-1
 \\end{align}
 $$
