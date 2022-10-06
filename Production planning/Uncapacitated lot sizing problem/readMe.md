@@ -1,8 +1,8 @@
 Pyomo example for the course "Modellering inden for Prescriptive Analytics" at Aarhus University, Fall 2022 
 
 Implementation of an uncapacitated lot sizing problem where a production plan over T periods has to obtimized. 
-For each period $t$ in {$1,..,T$} there is a unit production cost, a fixed cost for starting production, and a unit cost for putting
-products in the inventory ($p_t$, $q_t$, and $h_t$, respectively). In addition, there is known demand in each period denoted by $d_t$.
+For each period $t$ in $1,..,T$ there is a unit production cost, a fixed cost for starting production, and a unit cost for putting
+products in the inventory ( $p_t$, $q_t$, and $h_t$, respectively). In addition, there is known demand in each period denoted by $d_t$.
 The IP solved is given by
 
 $$
