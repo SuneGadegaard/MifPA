@@ -26,7 +26,7 @@ $$
 
 Here $x_t^k$ denotes the number of batches produced in periode $t$ of product $k$, $y_t^k=1$ if $x_t^k>0$, and $s_t^k$ denotes the number of products 
 in inventory ultimo period $t$ of product $k$.
-The idea of having shared resources can be generalized by introducing $I$ shared ressources, index by $i=1,\dots,I$. For each combination of product $k$ and resource $i$, three additional parameters are needed: $\alpha^{ik}$ is the amount of ressource $i$ used when producing one batch of product $k$, $\beta^{ik}$ is the amount of resource $i$ consumed when starting the production of product $k$, and $\gamme^{ik}$ is the amount of resource $i$ used when one unit of product $k$ is put in inventory. Finally, the amount of resource $i$ available at time $t$ is denoted $L^i_t$. The production and inventory capacities can then be generalized by the constraints
+The idea of having shared resources can be generalized by introducing $I$ shared ressources, index by $i=1,\dots,I$. For each combination of product $k$ and resource $i$, three additional parameters are needed: $\alpha^{ik}$ is the amount of ressource $i$ used when producing one batch of product $k$, $\beta^{ik}$ is the amount of resource $i$ consumed when starting the production of product $k$, and $\gamma^{ik}$ is the amount of resource $i$ used when one unit of product $k$ is put in inventory. Finally, the amount of resource $i$ available at time $t$ is denoted $L^i_t$. The production and inventory capacities can then be generalized by the constraints
 
 $$
 \begin{equation}
