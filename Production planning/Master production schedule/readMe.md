@@ -30,7 +30,7 @@ The idea of having shared resources can be generalized by introducing $I$ shared
 
 $$
 \begin{equation}
-  \sum_{k=1}^K \left( \alpha^{ik}B^kx_t^k + \beta^{ik}y_t^k + \gamma^{ik}s_t^k \right)\leq L^i_k\quad \forall i=1,\dots,I, t=1,\dots,T
+  \sum_{k=1}^K \left( \alpha^{ik}x_t^k + \beta^{ik}y_t^k + \gamma^{ik}s_t^k \right)\leq L^i_k\quad \forall i=1,\dots,I, t=1,\dots,T
 \end{equation}
 $$
 
