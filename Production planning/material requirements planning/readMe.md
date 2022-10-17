@@ -18,7 +18,7 @@ The IP solved is given by
 $$
   \\begin{align}
     \min        \ & \sum_{t=1}^T \sum_{k=1}^K (p_t^kB^kx_t^k + q_t^ky^k_t+h^k_ts^k_t)\\
-    \text{s.t.:}\ & s_{t-1}^k + B^kx_{t-\psi^k}^k = d_t^k + \sum_{l=1}^K r^{lk}x_t^l +s_t^k,  &&\forall t=1,\dots, T, k=1,\dots,K\\
+    \text{s.t.:}\ & s_{t-1}^k + B^kx_{t-\psi^k}^k = d_t^k + \sum_{l=1}^K B^kr^{lk}x_t^l +s_t^k,  &&\forall t=1,\dots, T, k=1,\dots,K\\
                 \ & x_t^k\leq My_t^k,&&\forall t=1,\dots,T, k=1,\dots,K\\
                 \ & \sum_{k=1}^K B^kx_t^k \leq P^{\max}, && \forall t=1,\dots,T\\
                 \ & \sum_{k=1}^K s_t^k \leq I^{\max}, && \forall t=1,\dots,T\\
