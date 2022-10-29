@@ -1,7 +1,7 @@
 This folder contains code for solving a TSP over $n$ customers *and* a depot.
 [Pyomo](http://www.pyomo.org/) is used for modelling the problem, and the IP model used is based on a one commmodity flow formulation presented by
-Gavish and Graves in 1978. The $x_{ij}$ are binary variables indicating if the salesman travels directly from node $i$ to node $j$ ($x_{ij}=1$) or not 
-($x_{ij}=0$)
+Gavish and Graves in 1978. The $x_{ij}$ are binary variables indicating if the salesman travels directly from node $i$ to node $j$ ( $x_{ij}=1$ ) or not 
+( $x_{ij}=0$ )
 
 The IP to be solved is given by 
 
