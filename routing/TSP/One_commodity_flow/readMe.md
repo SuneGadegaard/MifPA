@@ -11,12 +11,15 @@ $$
   \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1,& \forall j=0,..,n\\
               \ & \sum_{j=0}^n x_{ij} = 1,& \forall i=0,..,n\\
               \ & f_{ij} \leq nx_{ij},& \forall i,j=0,..,n\\
-              \ & f_{ij} \geq \min(1,i)x_{ij},& \forall i,j=0,...,n\\
+              \ & f_{ij} \geq \min(1,i)x_{ij},& \forall i,j=0,...,n \label{1}\\
               \ & \sum_{j=0}^n f_{ij} = \sum_{j=0}^n f_{ji} +1, &\forall i=1,...,n\\
               \ & f_{ij}\geq 0,& \forall i,j=0,..,n\\
               \ & x_{ij}\text{ binary},& \forall i,j=0,...,n
 \\end{align}
 $$
+
+\ref{1}
+
 
 The model is implemented in `TSP_one_commodity.py` and it uses functions from `readAndWriteJson.py` in order to read data from a Json-file.
 Two data-sets are given, namely `small_tsp_data` and `bigger_tsp_data`.
