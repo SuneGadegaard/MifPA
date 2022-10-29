@@ -9,7 +9,7 @@ $$
   \min        \ & \sum_{i=0}^n \sum_{j=0}^n d_{ij}x_{ij}\\
   \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1, & \forall j=0,..,n\\
               \ & \sum_{j=0}^n x_{ij} = 1, & \forall i=0,..,n\\
-              \ & u_i - u_j + n*x_{ij} + (n-2)*x_{ji} \leq n-1, & \forall i,j=1,..,n\\
+              \ & u_i - u_j + nx_{ij} + (n-2)x_{ji} \leq n-1, & \forall i,j=1,..,n\\
               \ & 1 \leq u_i \leq n, & \forall i=1,..,n\\
               \ & x_{ij}\text{ binary}, & \forall i,j=0,...,n
 \\end{align}
