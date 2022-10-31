@@ -9,8 +9,8 @@ The IP to be solved is given by
 $$
 \\begin{align}
   \min        \ & \sum_{i=0}^n \sum_{j=0}^n d_{ij}x_{ij}\\
-  \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1,& \forall j=0,..,n\\
-              \ & \sum_{j=0}^n x_{ij} = 1,& \forall i=0,..,n\\
+  \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1,& \forall j\in V\\
+              \ & \sum_{j=0}^n x_{ij} = 1,& \forall i\in V\\
               \ & \sum_{i\in S}\sum_{j\in S} x_{ij}\leq \vert S\vert -1,&\forall S\subseteq V:2\leq \vert S\vert \leq n\\
               \ & x_{ij}\text{ binary},& \forall i,j=0,...,n
 \\end{align}
