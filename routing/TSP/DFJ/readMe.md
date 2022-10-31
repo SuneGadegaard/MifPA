@@ -2,7 +2,7 @@ This folder contains code for solving a TSP over $n$ customers *and* a depot.
 [Pyomo](http://www.pyomo.org/) is used for modelling the problem, and the IP model used is based on an assignment problem with tight
 sub-tour elimination constraints. The formulation was proposed in “Solution of a large-scale traveling-salesman problem" by Dantzig, Fulkerson, and 
 Johnson in 1954. The $x_{ij}$ are binary variables indicating if the salesman travels directly from node $i$ to node $j$ ( $x_{ij}=1$ ) or not 
-( $x_{ij}=0$ )
+( $x_{ij}=0$ ). In this formulation, we let $V=${$0,...,n$}.
 
 The IP to be solved is given by 
 
@@ -11,7 +11,7 @@ $$
   \min        \ & \sum_{i=0}^n \sum_{j=0}^n d_{ij}x_{ij}\\
   \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1,& \forall j=0,..,n\\
               \ & \sum_{j=0}^n x_{ij} = 1,& \forall i=0,..,n\\
-              \ & \sum_{i\in S}\sum_{j\in S} x_{ij}\leq \vert S\vert -1,&\forall S\subseteq (0,...,n):2\leq \vert S\vert n\\
+              \ & \sum_{i\in S}\sum_{j\in S} x_{ij}\leq \vert S\vert -1,&\forall S\subseteq (0,...,n):2\leq \vert S\vert \leq n\\
               \ & x_{ij}\text{ binary},& \forall i,j=0,...,n
 \\end{align}
 $$
