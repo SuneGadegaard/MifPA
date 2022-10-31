@@ -11,7 +11,7 @@ $$
   \min        \ & \sum_{i=0}^n \sum_{j=0}^n d_{ij}x_{ij}\\
   \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1,& \forall j=0,..,n\\
               \ & \sum_{j=0}^n x_{ij} = 1,& \forall i=0,..,n\\
-              \ & \sum_{i\in S}\sum_{j\in S} x_{ij}\leq \vert S\vert -1,&\forall S\subseteq \char"123 0,...,n:2\leq \vert S\vert n\\
+              \ & \sum_{i\in S}\sum_{j\in S} x_{ij}\leq \vert S\vert -1,&\forall S\subseteq (0,...,n):2\leq \vert S\vert n\\
               \ & x_{ij}\text{ binary},& \forall i,j=0,...,n
 \\end{align}
 $$
