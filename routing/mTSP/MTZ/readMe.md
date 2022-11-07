@@ -24,6 +24,7 @@ The data is stored in a Json fil using the format
 ```
 "n" : number of customers. Stored as an integer
 "m" : number of sales persons leaving and entering the depot
+"S" : maximum number of customers allowed on a tour
 "xCord" : horizontal coordinates of the nodes (depot + customers). Stored in a list
 "yCord" : vertical coordinates of the nodes (depot + customers). Stored in a list
 "dist" : distance matrix where dist[i][j] is the distance between node i and node j. Stored as a list of lists
