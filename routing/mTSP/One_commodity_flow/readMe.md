@@ -24,7 +24,7 @@ The constraints $f_{ij} \geq \min(1,i)x_{ij}$ are not necessry but may strengthe
 
 
 The model is implemented in `mTSP_one_commodity_flow.py` and it uses functions from `readAndWriteJson.py` in order to read data from a Json-file.
-Two data-sets are given, namely `small_tsp_data` and `bigger_tsp_data`.
+Three data-sets are given, namely `small_mtsp_data`, `bigger_mtsp_data`, and `big_mtsp_data`.
 
 The data is stored in a Json fil using the format
 ```
