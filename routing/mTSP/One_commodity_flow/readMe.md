@@ -20,7 +20,7 @@ $$
 \\end{align}
 $$
 
-The constraints $f_{ij} \geq \min(1,i)x_{ij}$ are not necessry but may strengthen the LP relaxation.
+The constraints $f_{ij} \geq \min(1,i)x_{ij}$ are not necessary but may strengthen the LP relaxation.
 
 
 The model is implemented in `mTSP_one_commodity_flow.py` and it uses functions from `readAndWriteJson.py` in order to read data from a Json-file.
