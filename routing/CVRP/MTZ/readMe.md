@@ -1,5 +1,5 @@
 This folder contains code for solving a capacitated vehicle routing problem over $n$ customers *and* a depot with $m$ vehicles
-all having a capacity of $Q$. Each customer $i$ has a demand of $0<q_i<Q$
+all having a capacity of $Q$. Each customer $i$ has a demand of $ 0 < q_i < Q $.
 [Pyomo](http://www.pyomo.org/) is used for modelling the problem, and the IP model used is a so-called MTZ-based formulation,
 where $x_{ij}$ variables are lifted in the subtour elimination constraints. 
 
