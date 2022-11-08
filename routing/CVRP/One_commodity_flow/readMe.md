@@ -11,7 +11,7 @@ $$
   \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1, && \forall j=1,..,n\\
               \ & \sum_{j=0}^n x_{ij} = 1, && \forall i=1,..,n\\
               \ & \sum_{j=0}^n x_{0j} = m,\\
-              \ & \sum_{i=0}^n x{i0} = m,\\
+              \ & \sum_{i=0}^n x_{i0} = m,\\
               \ & f_{ij} \leq (Q-q_j)x_{ij}, && \forall i,j=0,..,n\\
               \ & f_{ij} \geq q_i x_{ij} && \forall i,j=0,..,n\\
               \ & \sum_{j=0}^n f_{ij} = \sum_{j=0}^n f_{ji} + q_i, && \forall i=1,...,n\\
