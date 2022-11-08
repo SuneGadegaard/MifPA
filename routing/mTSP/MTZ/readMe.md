@@ -7,13 +7,13 @@ The problem to be solved is given by
 $$
 \\begin{align}
   \min        \ & \sum_{i=0}^n \sum_{j=0}^n d_{ij}x_{ij}\\
-  \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1, & \forall j=1,..,n\\
-              \ & \sum_{j=0}^n x_{ij} = 1, & \forall i=1,..,n\\
-              \ & \sum_{j=1}^n x_{0j} = m,\\
-              \ & \sum_{i=1}^n x{i0} = m,\\
-              \ & u_i - u_j + Sx_{ij} + (S-2)x_{ji} \leq S-1, & \forall i,j=1,..,n\\
-              \ & 1 \leq u_i \leq n, & \forall i=1,..,n\\
-              \ & x_{ij}\text{ binary}, & \forall i,j=0,...,n
+  \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1, && \forall j=1,..,n\\
+              \ & \sum_{j=0}^n x_{ij} = 1, && \forall i=1,..,n\\
+              \ & \sum_{j=0}^n x_{0j} = m,\\
+              \ & \sum_{i=0}^n x{i0} = m,\\
+              \ & u_i - u_j + Sx_{ij} + (S-2)x_{ji} \leq S-1, && \forall i,j=1,..,n\\
+              \ & 1 \leq u_i \leq n, && \forall i=1,..,n\\
+              \ & x_{ij}\text{ binary}, && \forall i,j=0,...,n
 \\end{align}
 $$
 
