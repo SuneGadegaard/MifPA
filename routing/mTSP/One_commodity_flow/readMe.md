@@ -8,15 +8,15 @@ The IP to be solved is given by
 $$
 \\begin{align}
   \min        \ & \sum_{i=0}^n \sum_{j=0}^n d_{ij}x_{ij}\\
-  \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1,& \forall j=1,..,n\\
-              \ & \sum_{j=0}^n x_{ij} = 1,& \forall i=1,..,n\\
-              \ & \sum_{j=1}^n x_{0j} = m,\\
-              \ & \sum_{i=1}^n x_{i0} =m,\\
-              \ & f_{ij} \leq Sx_{ij},& \forall i,j=0,..,n\\
-              \ & f_{ij} \geq \min(1,i)x_{ij},& \forall i,j=0,...,n\\
-              \ & \sum_{j=0}^n f_{ij} = \sum_{j=0}^n f_{ji} +1, &\forall i=1,...,n\\
-              \ & f_{ij}\geq 0,& \forall i,j=0,..,n\\
-              \ & x_{ij}\text{ binary},& \forall i,j=0,...,n
+  \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1,&& \forall j=1,..,n\\
+              \ & \sum_{j=0}^n x_{ij} = 1,&& \forall i=1,..,n\\
+              \ & \sum_{j=0}^n x_{0j} = m,\\
+              \ & \sum_{i=0}^n x_{i0} =m,\\
+              \ & f_{ij} \leq Sx_{ij},&& \forall i,j=0,..,n\\
+              \ & f_{ij} \geq \min(1,i)x_{ij},&& \forall i,j=0,...,n\\
+              \ & \sum_{j=0}^n f_{ij} = \sum_{j=0}^n f_{ji} +1, &&\forall i=1,...,n\\
+              \ & f_{ij}\geq 0,&& \forall i,j=0,..,n\\
+              \ & x_{ij}\text{ binary},&& \forall i,j=0,...,n
 \\end{align}
 $$
 
