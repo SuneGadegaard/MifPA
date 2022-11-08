@@ -11,7 +11,7 @@ $$
   \text{s.t.:}\ & \sum_{i=0}^n x_{ij} = 1, & \forall j=1,..,n\\
               \ & \sum_{j=0}^n x_{ij} = 1, & \forall i=1,..,n\\
               \ & \sum_{j=1}^n x_{0j} = m,\\
-              \ & \sum_{i=1}^n x{i0} = m,\\
+              \ & \sum_{i=1}^n x_{i0} = m,\\
               \ & u_i - u_j + Qx_{ij} + (Q-q_i-q_j)x_{ji} \leq Q-q_j, & \forall i,j=1,..,n\\
               \ & q_i\leq u_i \leq Q, & \forall i=1,..,n\\
               \ & x_{ij}\text{ binary}, & \forall i,j=0,...,n
