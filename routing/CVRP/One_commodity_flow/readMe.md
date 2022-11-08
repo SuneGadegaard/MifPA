@@ -20,7 +20,8 @@ $$
 $$
 
 The model is implemented in `cvrp_one_commodity_flow.py` and it uses functions from `readAndWriteJson.py` in order to read data from a Json-file.
-Three data-sets are given, namely `cvrpDataFile_29`, `cvrpDataFile_39`, and `cvrpDataFile_50`. Both `cvrpDataFile_29` and `cvrpDataFile_50` are very difficult to solve using an MTZ-based formulation.
+Three data-sets are given, namely `cvrpDataFile_29`, `cvrpDataFile_39`, and `cvrpDataFile_50`. Among the three instances, especially 
+`cvrpDataFile_50` is very difficult to solve using a one commodity flow-based formulation.
 
 The data is stored in a Json fil using the format
 ```
