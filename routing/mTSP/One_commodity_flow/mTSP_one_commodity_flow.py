@@ -79,11 +79,12 @@ def displaySolution(model: pyomo.ConcreteModel(), data: dict):
     print('Total length of tours:', pyomo.value(model.obj))
     # Find a tour for each vehicle
     lastRouteStarter = 0
-    coordinatesPresent = 'xCord' in data and 'yCord' in data
+    coordinatesPresent = 'xCoord' in data and 'yCoord' in data
     for vehicle in range(1, data['m']+1):
+        print('Bil nummer', vehicle, "printes nu")
         if coordinatesPresent:
-            displayX = [data['xCord'][0]]
-            displayY = [data['yCord'][0]]
+            displayX = [data['xCoord'][0]]
+            displayY = [data['yCoord'][0]]
             labels = [0]
         # Find the customer, that starts the next route
         currentNode = 0
@@ -91,8 +92,8 @@ def displaySolution(model: pyomo.ConcreteModel(), data: dict):
             if j > lastRouteStarter and pyomo.value(model.x[0, j]) >= 0.9999:
                 currentNode = j
                 if coordinatesPresent:
-                    displayX.append(data['xCord'][currentNode])
-                    displayY.append(data['yCord'][currentNode])
+                    displayX.append(data['xCoord'][currentNode])
+                    displayY.append(data['yCoord'][currentNode])
                     labels.append(currentNode)
                 break
         lastRouteStarter = j
@@ -105,8 +106,8 @@ def displaySolution(model: pyomo.ConcreteModel(), data: dict):
                     print('->', j, end='')
                     currentNode = j
                     if coordinatesPresent:
-                        displayX.append(data['xCord'][currentNode])
-                        displayY.append(data['yCord'][currentNode])
+                        displayX.append(data['xCoord'][currentNode])
+                        displayY.append(data['yCoord'][currentNode])
                         labels.append(currentNode)
                     break
         print('\n')
@@ -116,7 +117,7 @@ def displaySolution(model: pyomo.ConcreteModel(), data: dict):
                 plt.plot(displayX, displayY, '-o')
                 for i, label in enumerate(labels):
                     plt.annotate(label, (displayX[i], displayY[i]))
-        plt.show()
+    plt.show()
 
 
 def main(filename: str):
@@ -127,4 +128,4 @@ def main(filename: str):
 
 
 if __name__ == '__main__':
-    main('big_mtsp_data')
+    main('bigger_mtsp_data')
