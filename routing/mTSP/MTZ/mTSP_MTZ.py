@@ -109,7 +109,7 @@ def displaySolution(model: pyomo.ConcreteModel(), data: dict):
                 plt.plot(displayX, displayY, '-o')
                 for i, label in enumerate(labels):
                     plt.annotate(label, (displayX[i], displayY[i]))
-        plt.show()
+    plt.show()
 
 
 def main(filename: str):
@@ -120,4 +120,4 @@ def main(filename: str):
 
 
 if __name__ == '__main__':
-    main('mTSP_n_21')
+    main('small_mtsp_data')
