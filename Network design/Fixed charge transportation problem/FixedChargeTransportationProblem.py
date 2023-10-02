@@ -11,8 +11,8 @@
 # min  sum ( i in 0..n-1 ) sum( i in 0..m-1 ) c[i][j]*x[i][j] + sum ( i in 0..n-1 ) sum ( j in 0..m-1 )  f[i][j]*y[i, j]
 # s.t. sum ( i in 0..n-1 ) x[i][j] >= d[j],               for all j=0..m-1
 #      sum ( j in 0..m-1 ) x[i][j] <= s[i],               for all i=0..n-1
-#      x[i][j] <= M[i][j]*y[i],                           for all i in 0..n-1 and all j in 0..m-1
-#      y[i] in {0,1}                                      for all i in 0..n-1
+#      x[i][j] <= M[i][j]*y[i][j],                           for all i in 0..n-1 and all j in 0..m-1
+#      y[i][j] in {0,1}                                      for all i in 0..n-1
 #      x[i][j] >= 0                                       for all i in 0..n-1 and j in 0..m-1
 # Here, M[i][j] = min { d[j], s[i] } provides a valid value for the big-M's.
 # The readData(...) function uses the readAndWriteJson file to read data from a Json file in the form
