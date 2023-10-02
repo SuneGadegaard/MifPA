@@ -3,7 +3,8 @@
 # is given.
 # A cost for sending one unit of flow from node i to node j in G is given by c[i][j]
 # and a fixed cost for sending a positive flow from i to j is given by f[i][j].
-# The sink node, t, demands d_t units of flow
+# The sink node, t, demands d_t units of flow.
+# Finally, each edge in the graph, G, has a upper limit on the flow it can accommodate. This bound is denoted u[i][j].
 # With continuous flow variables, x[i,j], indicating the amount of flow sent from node i to node j and binary
 # indicator variables, y[i, j], defined by the implication x[i, j]>0 => y[i, j]=1 a MILP formulation of the
 # problem is given by
@@ -11,22 +12,27 @@
 # s.t. sum ( (i,j) in E : i=s ) x[i, j] == d_t,
 #      sum ( (i,j) in E : j=t ) x[i, j] == d_t,
 #      sum( (i,j) in E : i=l ) x[i, j] == sum( (i,j) in E : j=l) x[i,j],  for all l in V\{s,t}
-#      y[i][j] in {0,1}                                                   for all (i,j) in E
-#      x[i][j] >= 0                                                       for all (i,j) in E
-# Here, M[i][j] = d_t provides a valid value for the big-M's.
+#      x[i][j] <= u[i][j]*y[i][j],                                        for all (i,j) in E
+#      y[i][j] in {0,1},                                                  for all (i,j) in E
+#      x[i][j] >= 0,                                                      for all (i,j) in E
 # The readData(...) function uses the readAndWriteJson file to read data from a Json file in the form
-# "num_supply": integer giving the number of suppliers
+# "numNodes": integer giving the number of nodes in the graph
 # "num_demand": integer giving the number customers/demand points
-# "supplies": [list of supplies for each supplier]
-# "demands": [list of demands for each customer]
-# "c": [list of lists. c[i][j] is the per unit cost of flow from i to j]
-# "f": [list of lists. f[i][j] is the fixed cost incurred if y[i, j]=1 ]
+# "adjacency_matrix": [list of lists. Gives the adjacency matrix representation of G]
+# "var_costs": [list of lists. var_cost[i][j] is the per unit cost of flow from node i to node j]
+# "fixed_costs": [list of lists. fixed_costs[i][j] is the fixed cost incurred if y[i, j]=1 ]
+# "upperBounds": [list of lists. upperBounds[i][j] is the upper bound on the flow allowed on the edge (i,j)]
+# "source" : integer specifying the index of the source node,
+# "sink" : integer specifying the index of the sink node,
+# "demand" : integer specifying the demand at the sink node.
+# In all list of lists above, only values where adjacency_matrix[i][j]=1 are meaningful. This is not an efficient way
+# of storing these values, but teaching purposes, it suffices.
 
 
 import pyomo.environ as pyomo  # For creating the mathematical model
 import readAndWriteJson as rwJson  # For reading files in json format
 from colorama import Fore  # Used for coloring the non-zero entries in the flow matrix
-import displayGraph as dispGraph
+import displayGraph as dispGraph  # Used for displaying the graph. It uses networkx and matplotlib
 
 
 # Reads a data file passed as an argument. Returns a dict containing the data
@@ -49,6 +55,7 @@ def buildModel(data: dict) -> pyomo.ConcreteModel:
     model.c = data['var_costs']
     model.f = data['fixed_costs']
     model.demand = data['demand']
+    model.u = data['upperBounds']
     # Variables
     model.x = pyomo.Var(model.edges, within=pyomo.NonNegativeReals)
     model.y = pyomo.Var(model.edges, within=pyomo.Binary)
@@ -75,8 +82,8 @@ def buildModel(data: dict) -> pyomo.ConcreteModel:
             )
     # Indicator constraints enforcing x[i, j] > 0 => y[i, j] = 1
     model.GUB = pyomo.ConstraintList()
-    for e in model.edges:
-        model.GUB.add(expr=model.x[e] <= model.demand * model.y[e])
+    for (i,j) in model.edges:
+        model.GUB.add(expr=model.x[(i,j)] <= model.u[i][j]*model.y[(i,j)])
     return model
 
 
@@ -96,6 +103,12 @@ def displaySolution(model: pyomo.ConcreteModel):
         if pyomo.value(model.x[(i, j)]) >= 0.1:
             newAdjacencyMatrix[i][j] = 1
     dispGraph.displayGraph([str(i) for i in model.nodes], newAdjacencyMatrix)
+    for e in model.edges:
+        value = pyomo.value(model.x[e])
+        if value > 0:
+            print(Fore.RED + 'Flow from ' + str(e[0]) + ' to ' + str(e[1]) + ' is ' + str(value))
+        else:
+            print(Fore.WHITE + 'Flow from ' + str(e[0]) + ' to ' + str(e[1]) + ' is ' + str(value))
 
 
 # Main function defining the flow-logic of the file. Takes a string with a file name as argument.
